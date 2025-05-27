@@ -1,0 +1,33 @@
+<head><title>
+    Stock Market Tracker
+</title>
+    </head>
+    <body  style="display: flex; align-items:center;justify-content:center; height:100vh;
+    background-image: url('static/2848029.jpg');background-size: cover;background-position: center;background-repeat: no-repeat;">
+        
+        <div >
+        <div style="background-color:rgba(255,255,255,0.7);padding: 20px;border-radius: 15px;">
+            <div><p style="font-size: 20px; color: red;">Stock Market Tracker</p></div>
+            <br>
+            <form method ="POST">
+               
+                <input type="text" name="stock" placeholder="Type the stock symbol :TSLA" style="margin-bottom: 20px;padding: 10px;border-radius: 10px;">
+                <br>
+                <button type="submit" style="align-self: center;margin-left: 50px;padding: 10px;background-color: red;border-radius: 12px;color: white;font-weight:100;"> Submit</button>
+            </form>
+            
+           
+
+        </div>
+        <div  style="border-radius: 12px;background-color: rgb(255, 255, 255,0.7);margin-top: 20px;">
+            {%if error%}
+            <div>{{error}}</div>
+            {%endif%}
+            {%if stock_data %}
+           <div style="padding-left: 10px;"><h3>{{stock_data.symbol}}</h3></div>
+           <p><strong>Price:</strong>${{stock_data.price}}</p>
+            <p><strong>Change:</strong>{{stock_data.change}}</p>
+           {%endif%}
+        </div>
+        </div>
+    </body>
